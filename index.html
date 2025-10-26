@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soodoo - AI-Powered Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .lang-switch {
+            padding: 8px 20px;
+            border: 1px solid #1a1a1a;
+            border-radius: 6px;
+            background: transparent;
+            color: #1a1a1a;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-switch:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+        
+        .tagline {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            background: #1a1a1a;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ffd93d 0%, #ffd93d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 80%;
+        }
+        
+        footer {
+            background: #f5f5f5;
+            padding: 60px 40px 30px;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        footer p {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            .tagline {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Soodoo AI</a>
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span id="lang-btn-text">中文</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <div class="tagline" id="tagline">Student + Do = Soodoo</div>
+            <h1 id="hero-title">Every error is your next opportunity</h1>
+            <p id="hero-desc">We're building artificial intelligence to transform how students learn from their mistakes, turning every error into a stepping stone toward mastery.</p>
+            <a href="#company" class="btn" id="hero-btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="company">
+        <h2 id="mission-title">Our Mission</h2>
+        <p style="font-size: 20px; line-height: 1.8; color: #333; text-align: center; max-width: 800px; margin: 0 auto;">
+            <span id="mission-text">At Soodoo, we believe that <span class="highlight">every mistake is an opportunity for growth</span>. Our mission is to harness the power of artificial intelligence to transform how students learn from their errors, making learning faster, smarter, and more accessible worldwide.</span>
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 Soodoo Ltd. <span id="footer-rights">All rights reserved.</span></p>
+        <p style="margin-top: 8px;">🇨🇳 上海加数度智能科技有限公司 | 🇬🇧 Soodoo Ltd</p>
+    </footer>
+
+    <script>
+        // 语言内容
+        const translations = {
+            en: {
+                langBtn: '中文',
+                tagline: 'Student + Do = Soodoo',
+                heroTitle: 'Every error is your next opportunity',
+                heroDesc: "We're building artificial intelligence to transform how students learn from their mistakes, turning every error into a stepping stone toward mastery.",
+                heroBtn: 'Learn More',
+                missionTitle: 'Our Mission',
+                missionText: 'At Soodoo, we believe that <span class="highlight">every mistake is an opportunity for growth</span>. Our mission is to harness the power of artificial intelligence to transform how students learn from their errors, making learning faster, smarter, and more accessible worldwide.',
+                footerRights: 'All rights reserved.'
+            },
+            zh: {
+                langBtn: 'English',
+                tagline: 'Student（学生）+ Do（行动）= Soodoo',
+                heroTitle: '每个错误，都是下一个机会',
+                heroDesc: '我们正在构建人工智能，改变学生从错误中学习的方式，将每个错误转化为通往精通的阶梯。',
+                heroBtn: '了解更多',
+                missionTitle: '我们的使命',
+                missionText: '在Soodoo，我们相信<span class="highlight">每个错误都是成长的机会</span>。我们的使命是利用人工智能的力量，改变学生从错误中学习的方式，让全球学习更快速、更智能、更便捷。',
+                footerRights: '保留所有权利。'
+            }
+        };
+
+        // 当前语言（从URL或localStorage读取）
+        let currentLang = localStorage.getItem('language') || 'en';
+
+        // 切换语言
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            localStorage.setItem('language', currentLang);
+            updateContent();
+        }
+
+        // 更新页面内容
+        function updateContent() {
+            const t = translations[currentLang];
+            
+            document.getElementById('lang-btn-text').textContent = t.langBtn;
+            document.getElementById('tagline').textContent = t.tagline;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-desc').textContent = t.heroDesc;
+            document.getElementById('hero-btn').textContent = t.heroBtn;
+            document.getElementById('mission-title').textContent = t.missionTitle;
+            document.getElementById('mission-text').innerHTML = t.missionText;
+            document.getElementById('footer-rights').textContent = t.footerRights;
+            
+            // 更新HTML lang属性
+            document.documentElement.lang = currentLang;
+            
+            // 更新标题
+            document.title = currentLang === 'en' 
+                ? 'Soodoo - AI-Powered Learning Platform'
+                : 'Soodoo - AI驱动的智能学习平台';
+        }
+
+        // 页面加载时初始化
+        window.addEventListener('DOMContentLoaded', updateContent);
+    </script>
+</body>
+</html>
