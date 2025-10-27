@@ -29,6 +29,7 @@ AI-powered learning platform that transforms student mistakes into
 growth opportunities.
 
 ## Tech Stack
+- Java
 - HTML5, CSS3, JavaScript
 - Nginx + Let's Encrypt SSL
 - HTTP/2
